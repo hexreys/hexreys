@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
+  <title id="title">Riot Vanguard detection vector research</title>
+  <desc id="desc">Stage-5 recovery, VM-exit probes, ETW hooks, telemetry and IOCTL catalogs.</desc>
+  <defs>
+    <linearGradient id="scan" x1="0" x2="1"><stop stop-color="#FFFFFF" stop-opacity="0"/><stop offset=".5" stop-color="#FFFFFF" stop-opacity=".8"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#FFFFFF" stroke-opacity=".035"/></pattern>
+  </defs>
+  <rect width="1200" height="380" rx="10" fill="#030303"/>
+  <rect width="1200" height="380" rx="10" fill="url(#grid)"/>
+  <path d="M0 62H1200" stroke="url(#scan)" stroke-width="2"><animateTransform attributeName="transform" type="translate" values="-1200 0;1200 0" dur="5s" repeatCount="indefinite"/></path>
+  <g font-family="ui-monospace, SFMono-Regular, Consolas, monospace" fill="#FFFFFF">
+    <text x="48" y="48" font-size="16" letter-spacing="4" opacity=".58">SELECTED ANTI-CHEAT RESEARCH / BUILD-PINNED NOTEBOOK</text>
+    <g transform="translate(48 88)">
+      <rect width="1104" height="220" rx="10" fill="#131313" stroke="#FFFFFF" stroke-opacity=".25"/>
+      <text x="30" y="44" font-size="14" letter-spacing="3" opacity=".5">01 / VGK.SYS + VGC.EXE</text>
+      <text x="30" y="92" font-size="34" font-weight="800">VANGUARD / DETECTION VECTORS</text>
+      <text x="30" y="128" font-size="16" opacity=".68">STAGE-5 · VMEXIT · ETW 0XF33 · RC4 IOCTL · TELEMETRY</text>
+      <g transform="translate(30 152)" font-size="13">
+        <g><rect width="205" height="44" rx="6" fill="#030303" stroke="#FFFFFF" stroke-opacity=".16"/><text x="14" y="28">8,868 SOLVED SITES</text></g>
+        <g transform="translate(217)"><rect width="160" height="44" rx="6" fill="#030303" stroke="#FFFFFF" stroke-opacity=".16"/><text x="14" y="28">14 VM PROBES</text></g>
+        <g transform="translate(389)"><rect width="150" height="44" rx="6" fill="#030303" stroke="#FFFFFF" stroke-opacity=".16"/><text x="14" y="28">24 ETW SLOTS</text></g>
+        <g transform="translate(551)"><rect width="150" height="44" rx="6" fill="#030303" stroke="#FFFFFF" stroke-opacity=".16"/><text x="14" y="28">68 EVENTS</text></g>
+        <g transform="translate(713)"><rect width="170" height="44" rx="6" fill="#030303" stroke="#FFFFFF" stroke-opacity=".16"/><text x="14" y="28">65 IOCTL CMDS</text></g>
+      </g>
+      <g transform="translate(1030 76)" fill="none" stroke="#FFFFFF" opacity=".46">
+        <circle r="42" stroke-dasharray="4 7"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="7s" repeatCount="indefinite"/></circle>
+        <path d="M-24 0H24M0-24V24"/><circle r="7" fill="#FFFFFF"><animate attributeName="opacity" values=".2;1;.2" dur="1.8s" repeatCount="indefinite"/></circle>
+      </g>
+    </g>
+    <text x="48" y="340" font-size="13" letter-spacing="3" opacity=".42">ORIGINAL INDEPENDENT REVERSE ENGINEERING / HEXREYS / WINDOWS X64</text>
+  </g>
+</svg>

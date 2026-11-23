@@ -6,7 +6,7 @@ I'm **hexreys**. I reverse engineer Windows software, from native applications a
 
 A decompiler gives me a starting point. I use static analysis and runtime observations to turn an unfamiliar binary into a model I can test. If a question keeps coming up, I build a tool to make the next investigation easier.
 
-[Driver research](#driver-research) · [VMProtect research](#vmprotect-research) · [Research focus](#research-focus) · [How I work](#how-i-work) · [Custom tools](#custom-tools)
+[Driver research](#driver-research) · [VMProtect research](#vmprotect-research) · [Vanguard research](#vanguard-research) · [Research focus](#research-focus) · [How I work](#how-i-work) · [Custom tools](#custom-tools)
 
 ## Driver research
 
@@ -35,6 +35,16 @@ The repository includes an offline Python tool, a synthetic descriptor schema, c
 Structural analysis of the VMProtect 3.x private resource mechanism across selected x64 builds. The notes connect the encrypted directory tree, transformed UTF-16 names, payload decoder, Win32 and native API redirection, resource-handle object, lazy plaintext cache, language fallback, and DLL-detach cleanup path.
 
 The repository includes a bounded offline tree parser and decoder, a cross-version fixture matrix, a reproduction workflow, and original diagrams for API interception, private resource layout, cache lifetime, and version-specific observations.
+
+## Vanguard research
+
+![Riot Vanguard detection-vector research: Stage-5, VM-exit probes, ETW hooks, telemetry and IOCTL catalogs.](vanguard-project.svg)
+
+### [Riot Vanguard detection vector breakdown](https://github.com/hexreys/vgk-vanguard-research)
+
+Independent reverse engineering of `vgk.sys` and `vgc.exe` from build `vanguard/1.19.1-18+20261001.143443`. The project reconstructs the `.riot0` and `.grfn1` protection layers, the complete 8,868-site Stage-5 sweep, fourteen hypervisor and CPU-timing probes, the PatchGuard-safe ETW `0xf33` stack-walking hook path, capture and input controls, executable-memory caller validation, process policy, TPM/PCI/GPU surfaces, and the RC4-framed device channel.
+
+The publication includes all original notes without omissions, seven animated diagrams, an offline Python explorer, the complete 68-code telemetry catalog, and the 65-command `\\??\\vgk` IOCTL switch map. Candidate-only observations, code-grounded results, dynamic probes, false-positive risks, and known bypass boundaries are kept explicitly separate.
 
 ## Research focus
 
