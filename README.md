@@ -1,4 +1,4 @@
-![HEXREYS. Reverse Engineer and Anti-Cheat Researcher.](hero.svg)
+![HEXREYS. Reverse Engineer and Anti-Cheat Researcher, with a black-and-white jester portrait.](hero.svg)
 
 # Reverse Engineer · Anti-Cheat Researcher
 
@@ -6,7 +6,7 @@ I'm **hexreys**. I reverse engineer Windows software, from native applications a
 
 A decompiler gives me a starting point. I use static analysis and runtime observations to turn an unfamiliar binary into a model I can test. If a question keeps coming up, I build a tool to make the next investigation easier.
 
-[Research focus](#research-focus) · [How I work](#how-i-work) · [Custom tools](#custom-tools)
+[Research focus](#research-focus) · [How I work](#how-i-work) · [Custom tools](#custom-tools) · [Reading shelf](#reading-shelf)
 
 ## Research focus
 
@@ -14,9 +14,15 @@ A decompiler gives me a starting point. I use static analysis and runtime observ
 
 I work through native code, control flow, data structures, and module boundaries. I like questions that connect a visible behavior to the underlying implementation, such as where an application stores its state or which path produces a particular result. I give functions and fields names as their roles become clear, then check those names against what the program does at runtime.
 
+For a Windows executable, three views are especially useful. The file layout gives me the sections and imports. The instruction stream shows reads, writes, branches, and calls. A runtime trace shows which of those paths were taken for a particular input.
+
+![Three views of a Windows binary. PE file layout, disassembly, and runtime trace.](binary-views.svg)
+
 ### Devirtualization
 
 Virtualized code interests me because a single routine can hide behind two layers of semantics. I look at the virtual machine's state, its instruction set, and what its handlers do to that state. Recovering a readable description of the routine means accounting for the original branches and data dependencies as well as the behavior of individual instructions.
+
+I think about a VM handler as a state transition. A useful description records which values it consumes, which fields it changes, and what determines the next virtual instruction. That makes it possible to compare handlers that look different at the native instruction level.
 
 ### Anti-cheat and game clients
 
@@ -33,6 +39,22 @@ I study anti-cheat internals, client behavior, cheats, and bypasses. The questio
 - **Model.** Describe the behavior in terms of inputs, decisions, and outputs. Record which parts still depend on an assumption.
 - **Verify.** Change an input or rerun a case and check whether the model predicts what happens.
 
+### Example question · Where does an application get a setting?
+
+I'd collect two runs that differ only in the setting, then compare what the application reads and writes. A candidate field earns its name when its observed width and values agree with the instructions that access it. If a read happens in both runs, I'd check which later decision actually depends on the value. The notes would include the binary build, the input I changed, and the observation that would make me revise the explanation.
+
 ## Custom tools
 
 I build small utilities for inspecting binaries, comparing outputs, and collecting observations in a form I can revisit. Sometimes the right tool is a parser for a format I keep seeing. Sometimes it's a script that makes two traces easy to compare. I prefer tools that capture enough context for me to pick up an investigation later and reproduce the same result.
+
+- **Binary inspection.** Summarize file headers and sections, and carry file offsets alongside the addresses used in analysis.
+- **Trace comparison.** Normalize addresses against module bases, keep module identity, and group repeated events before comparing two runs.
+- **Research notes.** Record the build and input, the evidence behind a hypothesis, and the checks that still need to be repeated.
+
+## Reading shelf
+
+- **Types and offsets.** A pointer type can make pseudocode display scaled indexes where the machine code uses byte offsets. This walkthrough shows how recovering explicit offsets helps when reconstructing a structure. [Igor's Tip #117 · Hex-Rays](https://hex-rays.com/blog/igors-tip-of-the-week-117-reset-pointer-type)
+- **Pointers inside structures.** A practical community discussion about representing a pointer to an interior field when the program also addresses earlier fields through it. [Reverse Engineering Stack Exchange](https://reverseengineering.stackexchange.com/questions/21242/handling-pointer-to-middle-of-struct-in-ghidra/24723)
+- **Instruction semantics.** Ghidra lowers machine instructions to p-code operations that describe effects on registers, memory, and temporaries. This is a useful way to connect individual instructions to data-flow analysis. [Ghidra P-Code Reference](https://ghidra.re/ghidra_docs/languages/html/pcoderef.html)
+- **Virtualized code.** Tim Blazytko walks through recovering a small virtual machine's instruction semantics and using them to read virtualized code. [Writing Disassemblers for VM-based Obfuscators](https://synthesis.to/2021/10/21/vm_based_obfuscation.html)
+- **Runtime evidence.** WinDbg's Time Travel Debugging records user-mode execution so you can replay the same run and revisit earlier state. [Microsoft · Time Travel Debugging Overview](https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-overview)
