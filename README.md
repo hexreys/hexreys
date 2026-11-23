@@ -6,7 +6,19 @@ I'm **hexreys**. I reverse engineer Windows software, from native applications a
 
 A decompiler gives me a starting point. I use static analysis and runtime observations to turn an unfamiliar binary into a model I can test. If a question keeps coming up, I build a tool to make the next investigation easier.
 
-[Research focus](#research-focus) · [How I work](#how-i-work) · [Custom tools](#custom-tools)
+[Driver research](#driver-research) · [Research focus](#research-focus) · [How I work](#how-i-work) · [Custom tools](#custom-tools)
+
+## Driver research
+
+![Two kernel-driver research repositories: facebook-media physical-memory primitives and LibWasys process termination.](projects.svg)
+
+### [facebook-media kernel driver research](https://github.com/hexreys/facebook-media-driver-research)
+
+Reverse engineering of three exposed IOCTL primitives, manual x64 page-table translation, `_EPROCESS` discovery, and a build-pinned SYSTEM token replacement PoC. Includes the complete request layouts, sample identity, exploitability assessment, reproduction checklist, and remediation model.
+
+### [LibWasys driver research](https://github.com/hexreys/libwasys-driver-research)
+
+Static reconstruction of the `WasysControl` process-termination path and a minimal client for `IOCTL 0x22E00C`. The notes connect the PID contract to process lookup, job assignment, termination, cleanup, BYOVD impact, and verification points for a live kernel trace.
 
 ## Research focus
 

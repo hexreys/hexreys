@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Driver research projects</title>
+  <desc id="desc">facebook-media physical memory research and LibWasys process termination research.</desc>
+  <rect width="1200" height="360" rx="10" fill="#030303"/>
+  <g font-family="ui-monospace, SFMono-Regular, Consolas, monospace" fill="#FFFFFF">
+    <text x="48" y="48" font-size="16" letter-spacing="4" opacity=".58">SELECTED DRIVER RESEARCH / 02 ACTIVE NOTES</text>
+    <g transform="translate(48 82)">
+      <rect width="528" height="220" rx="10" fill="#131313" stroke="#FFFFFF" stroke-opacity=".25"/>
+      <text x="28" y="50" font-size="15" letter-spacing="3" opacity=".55">01 / KERNEL MEMORY</text>
+      <text x="28" y="98" font-size="30" font-weight="700">FACEBOOK-MEDIA</text>
+      <text x="28" y="135" font-size="17" opacity=".75">VA READ · PA READ · PA WRITE</text>
+      <path d="M28 177H300" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="8 8"><animate attributeName="stroke-dashoffset" from="0" to="32" dur="1.6s" repeatCount="indefinite"/></path>
+      <text x="28" y="202" font-size="13" opacity=".45">TOKEN REPLACEMENT / WIN10 19045</text>
+    </g>
+    <g transform="translate(624 82)">
+      <rect width="528" height="220" rx="10" fill="#131313" stroke="#FFFFFF" stroke-opacity=".25"/>
+      <text x="28" y="50" font-size="15" letter-spacing="3" opacity=".55">02 / BYOVD SURFACE</text>
+      <text x="28" y="98" font-size="30" font-weight="700">LIBWASYS.SYS</text>
+      <text x="28" y="135" font-size="17" opacity=".75">PID → JOB → TERMINATE</text>
+      <path d="M28 177H300" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="8 8"><animate attributeName="stroke-dashoffset" from="0" to="32" dur="1.6s" repeatCount="indefinite"/></path>
+      <text x="28" y="202" font-size="13" opacity=".45">IOCTL 22E00C / SIGNED DRIVER</text>
+    </g>
+  </g>
+</svg>
