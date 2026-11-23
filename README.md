@@ -6,7 +6,7 @@ I'm **hexreys**. I reverse engineer Windows software, from native applications a
 
 A decompiler gives me a starting point. I use static analysis and runtime observations to turn an unfamiliar binary into a model I can test. If a question keeps coming up, I build a tool to make the next investigation easier.
 
-[Driver research](#driver-research) · [Research focus](#research-focus) · [How I work](#how-i-work) · [Custom tools](#custom-tools)
+[Driver research](#driver-research) · [VMProtect research](#vmprotect-research) · [Research focus](#research-focus) · [How I work](#how-i-work) · [Custom tools](#custom-tools)
 
 ## Driver research
 
@@ -19,6 +19,22 @@ Reverse engineering of three exposed IOCTL primitives, manual x64 page-table tra
 ### [LibWasys driver research](https://github.com/hexreys/libwasys-driver-research)
 
 Static reconstruction of the `WasysControl` process-termination path and a minimal client for `IOCTL 0x22E00C`. The notes connect the PID contract to process lookup, job assignment, termination, cleanup, BYOVD impact, and verification points for a live kernel trace.
+
+## VMProtect research
+
+![Two VMProtect research laboratories: memory integrity reconstruction and protected resource analysis.](vmp-projects.svg)
+
+### [VMProtect memory integrity laboratory](https://github.com/hexreys/vmp-memory-integrity-lab)
+
+Reconstruction of the VMProtect 3.x startup integrity path across selected 3.3.x–3.10.x x64 builds. The laboratory separates loaded-image checks from raw-file checks, models decoded range records, replays the reflected CRC-32 engine, calculates exact interval coverage, and records version drift without treating sample-specific offsets as universal signatures.
+
+The repository includes an offline Python tool, a synthetic descriptor schema, coverage and gap reporting, reproducible validation steps, and original diagrams for the memory model, checksum pipeline, coverage map, and cross-version behavior.
+
+### [VMProtect resource protection laboratory](https://github.com/hexreys/vmp-resource-lab)
+
+Structural analysis of the VMProtect 3.x private resource mechanism across selected x64 builds. The notes connect the encrypted directory tree, transformed UTF-16 names, payload decoder, Win32 and native API redirection, resource-handle object, lazy plaintext cache, language fallback, and DLL-detach cleanup path.
+
+The repository includes a bounded offline tree parser and decoder, a cross-version fixture matrix, a reproduction workflow, and original diagrams for API interception, private resource layout, cache lifetime, and version-specific observations.
 
 ## Research focus
 
