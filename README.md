@@ -6,7 +6,7 @@ I'm **hexreys**. I reverse engineer Windows software, from native applications a
 
 A decompiler gives me a starting point. I use static analysis and runtime observations to turn an unfamiliar binary into a model I can test. If a question keeps coming up, I build a tool to make the next investigation easier.
 
-[Research focus](#research-focus) · [How I work](#how-i-work) · [Custom tools](#custom-tools) · [Reading shelf](#reading-shelf)
+[Research focus](#research-focus) · [How I work](#how-i-work) · [Custom tools](#custom-tools)
 
 ## Research focus
 
@@ -50,11 +50,3 @@ I build small utilities for inspecting binaries, comparing outputs, and collecti
 - **Binary inspection.** Summarize file headers and sections, and carry file offsets alongside the addresses used in analysis.
 - **Trace comparison.** Normalize addresses against module bases, keep module identity, and group repeated events before comparing two runs.
 - **Research notes.** Record the build and input, the evidence behind a hypothesis, and the checks that still need to be repeated.
-
-## Reading shelf
-
-- **Types and offsets.** A pointer type can make pseudocode display scaled indexes where the machine code uses byte offsets. This walkthrough shows how recovering explicit offsets helps when reconstructing a structure. [Igor's Tip #117 · Hex-Rays](https://hex-rays.com/blog/igors-tip-of-the-week-117-reset-pointer-type)
-- **Pointers inside structures.** A practical community discussion about representing a pointer to an interior field when the program also addresses earlier fields through it. [Reverse Engineering Stack Exchange](https://reverseengineering.stackexchange.com/questions/21242/handling-pointer-to-middle-of-struct-in-ghidra/24723)
-- **Instruction semantics.** Ghidra lowers machine instructions to p-code operations that describe effects on registers, memory, and temporaries. This is a useful way to connect individual instructions to data-flow analysis. [Ghidra P-Code Reference](https://ghidra.re/ghidra_docs/languages/html/pcoderef.html)
-- **Virtualized code.** Tim Blazytko walks through recovering a small virtual machine's instruction semantics and using them to read virtualized code. [Writing Disassemblers for VM-based Obfuscators](https://synthesis.to/2021/10/21/vm_based_obfuscation.html)
-- **Runtime evidence.** WinDbg's Time Travel Debugging records user-mode execution so you can replay the same run and revisit earlier state. [Microsoft · Time Travel Debugging Overview](https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-overview)
